@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { Form, Input, DatePicker, Select, Button } from "antd";
-
+import { Layout } from 'antd';
 import getUser from "../api/github";
 
 const FormItem = Form.Item;
 const Option = Select.Option;
+const { Header, Footer, Content } = Layout;
 
 class RegisterForm extends Component {
   state = {
@@ -46,7 +47,8 @@ class RegisterForm extends Component {
     const formItemLayout = {
       labelCol: {
         xs: { span: 24 },
-        sm: { span: 8 }
+        sm: { span: 8 },
+        
       },
       wrapperCol: {
         xs: { span: 24 },
@@ -73,18 +75,25 @@ class RegisterForm extends Component {
         <Option value="1">+1</Option>
       </Select>
     );
+    
 
     return (
+        
+        <Layout>
+        <Header> Resistration Form </Header>
+        
+        <Content>
+        
       <Form onSubmit={this.handleSubmit}>
-        <FormItem {...formItemLayout} label="First Name">
+        <FormItem {...formItemLayout} label="First Name" >
           {getFieldDecorator("fname", {
             rules: [{ required: true, message: "Please input First Name!" }]
-          })(<Input />)}
+          })(<Input  style={{ width: "50%" }}/>)}
         </FormItem>
         <FormItem {...formItemLayout} label="Last Name">
           {getFieldDecorator("lname", {
             rules: [{ required: true, message: "Please input Last Name!" }]
-          })(<Input />)}
+          })(<Input style={{ width: "50%" }}/>)}
         </FormItem>
 
         <FormItem {...formItemLayout} label="E-mail">
@@ -99,7 +108,7 @@ class RegisterForm extends Component {
                 message: "Please input your E-mail!"
               }
             ]
-          })(<Input />)}
+          })(<Input style={{ width: "50%" }}/>)}
         </FormItem>
 
         <FormItem {...formItemLayout} label="Phone Number">
@@ -110,7 +119,7 @@ class RegisterForm extends Component {
                 validator: this.handlePhone
               }
             ]
-          })(<Input addonBefore={prefixSelector} style={{ width: "100%" }} />)}
+          })(<Input addonBefore={prefixSelector} style={{ width: "50%" }} />)}
         </FormItem>
 
         <FormItem {...formItemLayout} label="DatePicker">
@@ -133,6 +142,12 @@ class RegisterForm extends Component {
           </Button>
         </FormItem>
       </Form>
+      
+      </Content>
+    
+      
+      <Footer></Footer>
+      </Layout>
     );
   }
 }

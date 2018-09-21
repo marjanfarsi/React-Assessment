@@ -8,7 +8,7 @@ const request = (obj) => new Promise((resolve, reject) => {
   const birthdate = data.birthdate
   fs.writeFile(`./src/api/__mockData__/${email}.json`, JSON.stringify(data), 
   (err) => {
-     
+  
     if (err) reject(err)
     // Parse the data as JSON and put in the key entity (just like the request library does)
     resolve({ entity: data })
