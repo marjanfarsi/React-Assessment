@@ -8,18 +8,6 @@ import Adapter from "enzyme-adapter-react-16";
 Enzyme.configure({ adapter: new Adapter() });
 
 
-// A simple example test
-/*describe('#getUser() using Promises', () => {
-  
-  it('should load user data', () => {
-    return getUser({name: 'marjan', email: 'marjan@gmail.com'})
-    .then(data => {
-      expect(data).toBeDefined()
-      expect(data.entity.name).toEqual('marjan')
-    })
-  })
-})*/
-
 it("should verify the phone format", () => {
   const phoneFormat = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
   const phoneValue = "971713533";
